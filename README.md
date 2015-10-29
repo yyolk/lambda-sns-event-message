@@ -9,9 +9,8 @@ $ npm install --save lambda-sns-event-message
 ## Usage
 For when you just need the message portion of an SNS event:
 
-Pass in the SNS `event`
+Pass in the SNS `event`:
 ```js
-
 var parseSNSMessage = require('lambda-sns-event-message');
 
 exports.handler = function(event, context) {
