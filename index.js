@@ -20,6 +20,6 @@ module.exports = function(event) {
     return messages[0];
   }
   else {
-    return messages;  
+    return messages;
   }
 };
