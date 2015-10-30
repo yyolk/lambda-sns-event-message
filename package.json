@@ -1,10 +1,10 @@
 {
   "name": "lambda-sns-event-message",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Utility function for returning the `Message:` portion of an SNS invocation of lambda",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava"
   },
   "repository": {
     "type": "git",
@@ -25,10 +25,13 @@
     "name": "Joseph Yølk Chiocchi",
     "email": "joe@yolk.cc",
     "url": "http://yolk.cc"
-    },
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/yyolk/lambda-sns-event-message/issues"
   },
-  "homepage": "https://github.com/yyolk/lambda-sns-event-message#readme"
+  "homepage": "https://github.com/yyolk/lambda-sns-event-message#readme",
+  "devDependencies": {
+    "ava": "^0.3.0"
+  }
 }
