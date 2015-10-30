@@ -1,4 +1,4 @@
-# lambda-sns-event-message
+# lambda-sns-event-message [![Build Status](https://travis-ci.org/yyolk/lambda-sns-event-message.svg?branch=master)](https://travis-ci.org/yyolk/lambda-sns-event-message)
 Utility function for returning the `Message:` portion of an SNS invocation of lambda
 
 ## Install
