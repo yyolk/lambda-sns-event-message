@@ -90,37 +90,35 @@ test('multiple json records', t => {
   t.end();
 });
 
-// test('multiple records mixed', t => {
-//   const messageString = "Hello from SNS!";
-//   const sampleJSON = {
-//     a: 'string',
-//     b: 'anotherString',
-//     c: ['a', 'b', 'c'],
-//     d: [{
-//       a: 'string',
-//       b: ['a', 'b', 'c'],
-//       c: {
-//         a: 'b',
-//         c: 'd'
-//       }
-//     }],
-//     e: {
-//       a: 'a',
-//       b: 'b',
-//       c: ['a', 'b', 'c'],
-//       d: {
-//         a: 'a',
-//         b: 'b'
-//       }
-//     }
-//   };
-//   const sampleJSONString = JSON.stringify(sampleJSON);
-//   var sampleMultiRecordSNS = {"Records": [{"EventVersion": "1.0", "EventSubscriptionArn": "arn:aws:sns:EXAMPLE", "EventSource": "aws:sns", "Sns": {"SignatureVersion": "1", "Timestamp": "1970-01-01T00:00:00.000Z", "Signature": "EXAMPLE", "SigningCertUrl": "EXAMPLE", "MessageId": "95df01b4-ee98-5cb9-9903-4c221d41eb5e", "Message": "Hello from SNS!", "MessageAttributes": {"Test": {"Type": "String", "Value": "TestString"}, "TestBinary": {"Type": "Binary", "Value": "TestBinary"} }, "Type": "Notification", "UnsubscribeUrl": "EXAMPLE", "TopicArn": "arn:aws:sns:EXAMPLE", "Subject": "TestInvoke"} } ] };
-//   var sampleJSONSNS = {};
-//   sampleJSONSNS = sampleMultiRecordSNS.Records[0];
-//   sampleJSONSNS.Sns.Message = sampleJSONString;
-//   sampleMultiRecordSNS.Records[1] = sampleJSONSNS;
-//   // sampleMultiRecordSNS.Records[1].Sns.Message = sampleJSONString;
-//   t.same(fn(sampleMultiRecordSNS), [messageString, sampleJSON]);
-//   t.end();
-// });
+test('multiple records mixed', t => {
+  const messageString = "Hello from SNS!";
+  const sampleJSON = {
+    a: 'string',
+    b: 'anotherString',
+    c: ['a', 'b', 'c'],
+    d: [{
+      a: 'string',
+      b: ['a', 'b', 'c'],
+      c: {
+        a: 'b',
+        c: 'd'
+      }
+    }],
+    e: {
+      a: 'a',
+      b: 'b',
+      c: ['a', 'b', 'c'],
+      d: {
+        a: 'a',
+        b: 'b'
+      }
+    }
+  };
+  const sampleJSONString = JSON.stringify(sampleJSON);
+  var sampleMultiMixedRecordSNS = {"Records": [
+    {"EventVersion": "1.0", "EventSubscriptionArn": "arn:aws:sns:EXAMPLE", "EventSource": "aws:sns", "Sns": {"SignatureVersion": "1", "Timestamp": "1970-01-01T00:00:00.000Z", "Signature": "EXAMPLE", "SigningCertUrl": "EXAMPLE", "MessageId": "95df01b4-ee98-5cb9-9903-4c221d41eb5e", "Message": "Hello from SNS!", "MessageAttributes": {"Test": {"Type": "String", "Value": "TestString"}, "TestBinary": {"Type": "Binary", "Value": "TestBinary"} }, "Type": "Notification", "UnsubscribeUrl": "EXAMPLE", "TopicArn": "arn:aws:sns:EXAMPLE", "Subject": "TestInvoke"} },
+    {"EventVersion": "1.0", "EventSubscriptionArn": "arn:aws:sns:EXAMPLE", "EventSource": "aws:sns", "Sns": {"SignatureVersion": "1", "Timestamp": "1970-01-01T00:00:00.000Z", "Signature": "EXAMPLE", "SigningCertUrl": "EXAMPLE", "MessageId": "95df01b4-ee98-5cb9-9903-4c221d41eb5e", "Message": sampleJSONString, "MessageAttributes": {"Test": {"Type": "String", "Value": "TestString"}, "TestBinary": {"Type": "Binary", "Value": "TestBinary"} }, "Type": "Notification", "UnsubscribeUrl": "EXAMPLE", "TopicArn": "arn:aws:sns:EXAMPLE", "Subject": "TestInvoke"} } 
+    ]};
+  t.same(fn(sampleMultiMixedRecordSNS), [messageString, sampleJSON]);
+  t.end();
+});
