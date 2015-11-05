@@ -1,6 +1,6 @@
 {
   "name": "lambda-sns-event-message",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Utility function for returning the `Message:` portion of an SNS invocation of lambda",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/yyolk/lambda-sns-event-message.git"
   },
+  "engine": "0.10.36",
   "keywords": [
     "lambda",
     "sns",
